@@ -38,12 +38,12 @@
             this.db.SaveChanges();
         }
 
-        public string GetUserId(string username, string password) //todo: change username parameter name to usernameOrEmail
+        public string GetUserId(string usernameOrEmail, string password)
         {
             var hashedPassword = this.Hash(password);
 
             return this.db.Users
-                    .Where(u => u.Username == username || u.Email == username && u.Password == hashedPassword)
+                    .Where(u => u.Username == usernameOrEmail || u.Email == usernameOrEmail && u.Password == hashedPassword)
                     .Select(u => u.Id)
                     .FirstOrDefault();
         }

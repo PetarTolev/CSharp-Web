@@ -1,10 +1,10 @@
-﻿using IRunes.App.ViewModels.Tracks;
-using IRunes.Services.TracksService;
-using SIS.HTTP;
-using SIS.MvcFramework;
-
-namespace IRunes.App.Controllers
+﻿namespace IRunes.App.Controllers
 {
+    using Services.TracksService;
+    using SIS.HTTP;
+    using SIS.MvcFramework;
+    using ViewModels.Tracks;
+
     public class TracksController : Controller
     {
         private readonly ITracksService tracksService;

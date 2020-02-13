@@ -8,6 +8,6 @@
 
         void CreateUser(string username, string password, string confirmPassword, string email);
 
-        string GetUserId(string username, string password);
+        string GetUserId(string usernameOrEmail, string password);
     }
 }

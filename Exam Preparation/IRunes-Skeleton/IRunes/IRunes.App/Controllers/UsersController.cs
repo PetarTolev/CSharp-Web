@@ -1,5 +1,6 @@
 ﻿namespace IRunes.App.Controllers
 {
+    using InputModels.Users;
     using Services.UsersService;
     using SIS.HTTP;
     using SIS.MvcFramework;
@@ -24,9 +25,9 @@
         }
 
         [HttpPost]
-        public HttpResponse Login(string username, string password) //todo: export to view model with usernameOrEmail
+        public HttpResponse Login(LoginInputModel input)
         {
-            var userId = this.usersService.GetUserId(username, password);
+            var userId = this.usersService.GetUserId(input.UsernameOrEmail, input.Password);
 
             if (userId == null)
             {
@@ -55,36 +56,36 @@
         }
 
         [HttpPost]
-        public HttpResponse Register(string username, string password, string confirmPassword, string email) //todo: export to viewmodel
+        public HttpResponse Register(RegisterInputModel input) //todo: export to viewmodel
         {
             //TODO: create model for message and show above register form
             string message = null;
-            if (password != confirmPassword)
+            if (input.Password != input.ConfirmPassword)
             {
                 return this.Redirect("Register"); 
             }
 
-            if (this.usersService.IsEmailUsed(email))
+            if (this.usersService.IsEmailUsed(input.Email))
             {
                 return this.Redirect("Register");
             }
 
-            if (this.usersService.IsUsernameUsed(username))
+            if (this.usersService.IsUsernameUsed(input.Username))
             {
                 return this.Redirect("Register");
             }
 
-            if (username.Length < 4 || username.Length > 10)
+            if (input.Username.Length < 4 || input.Username.Length > 10)
             {
                 return this.Redirect("Register");
             }
 
-            if (password.Length < 6 || password.Length > 20)
+            if (input.Password.Length < 6 || input.Password.Length > 20)
             {
                 return this.Redirect("Register");
             }
 
-            this.usersService.CreateUser(username, password, confirmPassword, email);
+            this.usersService.CreateUser(input.Username, input.Password, input.ConfirmPassword, input.Email);
 
             return this.Redirect("Login");
         }

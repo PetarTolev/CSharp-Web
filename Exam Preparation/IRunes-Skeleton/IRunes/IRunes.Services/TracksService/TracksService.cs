@@ -1,10 +1,9 @@
-﻿using System.Linq;
-using System.Text.RegularExpressions;
-
-namespace IRunes.Services.TracksService
+﻿namespace IRunes.Services.TracksService
 {
     using Data;
     using Models;
+    using System.Linq;
+    using System.Text.RegularExpressions;
 
     public class TracksService : ITracksService
     {
