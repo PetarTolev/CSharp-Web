@@ -1,5 +1,6 @@
 ﻿namespace Andreys.Controllers
 {
+    using InputModels.Users;
     using SIS.HTTP;
     using SIS.MvcFramework;
 
@@ -16,7 +17,7 @@
         }
 
         [HttpPost]
-        public HttpResponse Login(string username, string password)
+        public HttpResponse Login(UsersLoginInputModel input)
         {
             return this.View();
         }
@@ -27,7 +28,7 @@
         }
 
         [HttpPost]
-        public HttpResponse Register(string username, string email, string password, string confirmPassword) //todo: export in inputmodel
+        public HttpResponse Register(UsersRegisterInputModel input)
         {
             return this.View();
         }

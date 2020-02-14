@@ -23,7 +23,7 @@
                 return this.Redirect("/");
             }
 
-            return this.View();
+            return this.View(); //todo: add model
         }
     }
 }

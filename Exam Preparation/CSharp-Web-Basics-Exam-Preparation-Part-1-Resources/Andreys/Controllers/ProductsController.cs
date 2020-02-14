@@ -1,5 +1,6 @@
 ﻿namespace Andreys.Controllers
 {
+    using InputModels.Products;
     using SIS.HTTP;
     using SIS.MvcFramework;
 
@@ -16,7 +17,7 @@
         }
 
         [HttpPost]
-        public HttpResponse Add(string name, string description, string imageUrl, string category, string gender, decimal price) //todo: export in inputmodel
+        public HttpResponse Add(ProductsAddInputModel input)
         {
             return this.View();
         }
