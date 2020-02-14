@@ -1,4 +1,6 @@
-﻿namespace Andreys.App.Services.Users
+﻿using System.IO.IsolatedStorage;
+
+namespace Andreys.App.Services.Users
 {
     using Andreys.InputModels.Users;
     using Data;
@@ -37,6 +39,14 @@
 
             this.db.Users.Add(user);
             this.db.SaveChanges();
+        }
+
+        public string GetUserId(UsersLoginInputModel input)
+        {
+            return this.db.Users
+                .Where(u => u.Username == input.Username && u.Password == this.Hash(input.Password))
+                .Select(u => u.Id)
+                .FirstOrDefault();
         }
 
         private string Hash(string input)

@@ -1,11 +1,12 @@
 ﻿namespace Andreys.App
 {
-    using System.Collections.Generic;
-
+    using Andreys.Services.Home;
+    using Andreys.Services.Products;
     using Data;
-
-    using SIS.MvcFramework;
+    using Services.Users;
     using SIS.HTTP;
+    using SIS.MvcFramework;
+    using System.Collections.Generic;
 
     public class Startup : IMvcApplication
     {
@@ -19,6 +20,9 @@
 
         public void ConfigureServices(IServiceCollection serviceCollection)
         {
+            serviceCollection.Add<IHomeService, HomeService>();
+            serviceCollection.Add<IProductsService, ProductsService>();
+            serviceCollection.Add<IUsersService, UsersService>();
         }
     }
 }

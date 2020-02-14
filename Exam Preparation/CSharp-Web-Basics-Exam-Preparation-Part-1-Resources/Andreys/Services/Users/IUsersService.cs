@@ -9,5 +9,7 @@ namespace Andreys.App.Services.Users
         bool IsEmailUsed(string inputEmail);
 
         void CreateUser(UsersRegisterInputModel input);
+
+        string GetUserId(UsersLoginInputModel input);
     }
 }
