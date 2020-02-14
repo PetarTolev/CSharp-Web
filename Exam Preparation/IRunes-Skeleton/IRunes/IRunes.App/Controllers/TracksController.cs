@@ -21,6 +21,11 @@
                 return this.Redirect("/Users/Login");
             }
 
+            if (albumId == null)
+            {
+                return this.Error("The album does not exist!");
+            }
+
             var model = new CreateViewModel
             {
                 AlbumId = albumId,
@@ -39,7 +44,7 @@
 
             if (name.Length <= 4 || name.Length >= 20)
             {
-                return this.Create(albumId); //todo: error message
+                return this.Create(albumId);
             }
 
             this.tracksService.CreateTrack(albumId, name, link, price);
@@ -58,7 +63,7 @@
 
             if (track == null)
             {
-                return this.Redirect("/"); //todo: error with message "track doesn't exist!"
+                return this.Error("The track does not exist!");
             }
 
             var model = new TrackDetailsViewModel

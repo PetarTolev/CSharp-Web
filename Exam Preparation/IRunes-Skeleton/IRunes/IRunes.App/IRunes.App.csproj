@@ -35,6 +35,9 @@
     <None Update="Views\Home\Index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Views\Shared\Error.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Views\Tracks\Create.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

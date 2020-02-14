@@ -74,7 +74,7 @@
 
             if (album == null)
             {
-                return this.Redirect("/"); //todo: redirect to error page
+                return this.Error("The album does not exist!");
             }
 
             var model = new AlbumDetailsViewModel

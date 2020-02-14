@@ -1,10 +1,9 @@
-﻿using IRunes.App.ViewModels.Home;
-using IRunes.Services.HomeService;
-
-namespace IRunes.App.Controllers
+﻿namespace IRunes.App.Controllers
 {
+    using Services.HomeService;
     using SIS.HTTP;
     using SIS.MvcFramework;
+    using ViewModels.Home;
 
     public class HomeController : Controller
     {

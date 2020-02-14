@@ -22,7 +22,7 @@
 
         public bool IsNameUsed(string name)
         {
-            return this.db.Albums.Any(a => a.Name == name); //todo: test if name exist
+            return this.db.Albums.Any(a => a.Name == name);
         }
 
         public void CreateAlbum(string name, string cover)
