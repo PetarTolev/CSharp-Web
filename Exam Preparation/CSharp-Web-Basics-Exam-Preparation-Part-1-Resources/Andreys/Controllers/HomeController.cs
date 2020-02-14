@@ -10,8 +10,19 @@
             
         }
 
+        [HttpGet("/")]
         public HttpResponse Index()
         { 
+            return this.View();
+        }
+
+        public HttpResponse Home()
+        {
+            if (!this.IsUserLoggedIn())
+            {
+                return this.Redirect("/");
+            }
+
             return this.View();
         }
     }
