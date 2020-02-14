@@ -1,10 +1,16 @@
 ﻿namespace Andreys.Models
 {
     using Enums;
+    using System;
     using System.ComponentModel.DataAnnotations;
 
     public class Product
     {
+        public Product()
+        {
+            this.Id = Guid.NewGuid().ToString();
+        }
+
         [Key]
         public string Id { get; set; }
 

@@ -8,6 +8,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200214092351_InitialCreate.cs" />
     <Compile Remove="Migrations\20200214092351_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200214110454_AddGuidOnProduct.cs" />
+    <Compile Remove="Migrations\20200214110454_AddGuidOnProduct.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -62,7 +64,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\Products\" />
     <Folder Include="ViewModels\Users\" />
   </ItemGroup>
 

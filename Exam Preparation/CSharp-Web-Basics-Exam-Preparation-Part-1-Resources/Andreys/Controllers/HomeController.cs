@@ -36,6 +36,7 @@
             var products = this.homeService.GetAllProducts().Select(p =>
                 new ProductHomeViewModel
                 {
+                    Id = p.Id,
                     Name = p.Name,
                     ImageUrl = p.ImageUrl,
                     Price = p.Price,
