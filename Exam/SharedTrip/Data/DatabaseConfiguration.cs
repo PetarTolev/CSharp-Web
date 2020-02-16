@@ -3,6 +3,6 @@
     public class DatabaseConfiguration
     {
         public const string ConnectionString =
-            @"Server=.;Database=SharedTrip;Trusted_Connection=True;Integrated Security=True;";
+            @"Server=DESKTOP-IN4GT0T\SQLEXPRESS;Database=SharedTrip;Trusted_Connection=True;Integrated Security=True;";
     }
 }

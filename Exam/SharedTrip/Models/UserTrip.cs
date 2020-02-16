@@ -3,13 +3,13 @@
     using System.ComponentModel.DataAnnotations;
 
     public class UserTrip
-    {
+    {//todo: guid
         [Required]
-        public int TripId { get; set; }
+        public string TripId { get; set; }
         public virtual Trip Trip { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public virtual User User { get; set; }
     }
 }
