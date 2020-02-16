@@ -6,6 +6,11 @@
 
     public class Trip
     {
+        public Trip()
+        {
+            this.Id = Guid.NewGuid().ToString();
+        }
+
         [Key]
         public string Id { get; set; }
 
