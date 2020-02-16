@@ -1,5 +1,6 @@
 ﻿namespace SharedTrip
 {
+    using Data;
     using Services.TripsService;
     using Services.UsersService;
     using SIS.HTTP;

@@ -1,7 +1,7 @@
-﻿using SharedTrip.InputModels.Users;
-
-namespace SharedTrip.Services.UsersService
+﻿namespace SharedTrip.Services.UsersService
 {
+    using InputModels.Users;
+
     public interface IUsersService
     {
         string GetUserId(string username, string password);

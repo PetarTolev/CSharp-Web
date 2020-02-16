@@ -1,10 +1,10 @@
-﻿using SharedTrip.InputModels.Users;
-using SharedTrip.Services.UsersService;
-using SIS.HTTP;
-using SIS.MvcFramework;
-
-namespace SharedTrip.Controllers
+﻿namespace SharedTrip.Controllers
 {
+    using InputModels.Users;
+    using Services.UsersService;
+    using SIS.HTTP;
+    using SIS.MvcFramework;
+
     public class UsersController : Controller
     {
         private readonly IUsersService usersService;
@@ -18,7 +18,7 @@ namespace SharedTrip.Controllers
         {
             if (this.IsUserLoggedIn())
             {
-                return this.Error("Logged in!"); //todo error html
+                return this.Error("You are already logged in!");
             }
 
             return this.View();
@@ -29,7 +29,7 @@ namespace SharedTrip.Controllers
         {
             if (this.IsUserLoggedIn())
             {
-                return this.Error("Logged in!");
+                return this.Error("You are already logged in!");
             }
 
             var userId = this.usersService.GetUserId(username, password);
@@ -41,7 +41,7 @@ namespace SharedTrip.Controllers
 
             this.SignIn(userId);
 
-            return this.Redirect("/");
+            return this.Redirect("/Trips/All");
         }
 
         public HttpResponse Logout()
@@ -60,7 +60,7 @@ namespace SharedTrip.Controllers
         {
             if (this.IsUserLoggedIn())
             {
-                return this.Error("Logged in!");
+                return this.Error("You are already logged in!");
             }
 
             return this.View();
@@ -71,7 +71,7 @@ namespace SharedTrip.Controllers
         {
             if (this.IsUserLoggedIn())
             {
-                return this.Error("Logged in!");
+                return this.Error("You are already logged in!");
             }
 
             if (input.Password.Length < 6 || input.Password.Length > 20 ||
@@ -86,7 +86,7 @@ namespace SharedTrip.Controllers
 
             this.usersService.CreateUser(input);
 
-            return this.Redirect("/");
+            return this.Redirect("Login");
         }
     }
 }

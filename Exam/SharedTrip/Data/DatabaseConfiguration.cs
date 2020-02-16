@@ -1,4 +1,4 @@
-﻿namespace SharedTrip
+﻿namespace SharedTrip.Data
 {
     public class DatabaseConfiguration
     {

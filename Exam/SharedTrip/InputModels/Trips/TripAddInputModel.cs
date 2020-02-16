@@ -10,7 +10,7 @@
 
         public string ImagePath { get; set; }
 
-        public int Seats { get; set; }
+        public string Seats { get; set; }
 
         public string Description { get; set; }
     }

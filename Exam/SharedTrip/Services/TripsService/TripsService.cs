@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using SharedTrip.InputModels.Trips;
-using SharedTrip.Models;
-using SharedTrip.ViewModels.Trips;
-
-namespace SharedTrip.Services.TripsService
+﻿namespace SharedTrip.Services.TripsService
 {
+    using Data;
+    using InputModels.Trips;
+    using Models;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using ViewModels.Trips;
+
+
     public class TripsService : ITripsService
     {
         private readonly ApplicationDbContext db;
@@ -24,7 +26,7 @@ namespace SharedTrip.Services.TripsService
                     new TripsDetailsViewModel
                     {
                         Id = t.Id,
-                        DepartureTime = t.DepartureTime.ToString(), //todo: add format
+                        DepartureTime = t.DepartureTime.ToString("dd/MM/yyyy HH:mm"),
                         EndPoint = t.EndPoint,
                         StartPoint = t.StartPoint,
                         Seats = t.Seats,
@@ -36,11 +38,11 @@ namespace SharedTrip.Services.TripsService
         {
             var trip = new Trip
             {
-                DepartureTime = DateTime.Parse(input.DepartureTime), //todo: not sure for datetime format
+                DepartureTime = DateTime.Parse(input.DepartureTime),
                 StartPoint = input.StartPoint,
                 EndPoint = input.EndPoint,
                 ImagePath = input.ImagePath,
-                Seats = input.Seats,
+                Seats = int.Parse(input.Seats),
                 Description = input.Description,
             };
 

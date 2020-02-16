@@ -2,6 +2,7 @@
 {
     using InputModels.Users;
     using Models;
+    using Data;
     using System.Linq;
     using System.Security.Cryptography;
     using System.Text;

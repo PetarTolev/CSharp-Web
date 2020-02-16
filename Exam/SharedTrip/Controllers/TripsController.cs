@@ -2,9 +2,9 @@
 {
     using InputModels.Trips;
     using Services.TripsService;
-    using ViewModels.Trips;
     using SIS.HTTP;
     using SIS.MvcFramework;
+    using ViewModels.Trips;
 
     public class TripsController : Controller
     {
@@ -46,7 +46,7 @@
                 Id = trip.Id,
                 StartPoint = trip.StartPoint,
                 EndPoint = trip.EndPoint,
-                DepartureTime = trip.DepartureTime.ToString(), //todo: datetime format
+                DepartureTime = trip.DepartureTime.ToString(),
                 Seats = trip.Seats,
                 ImagePath = trip.ImagePath,
                 Description = trip.Description,
@@ -73,11 +73,12 @@
                 return this.Redirect("/Users/Login");
             }
 
-            if (input.StartPoint == null || input.EndPoint == null ||
-                input.Seats < 2 || input.Seats > 6 ||
-                input.Description.Length < 0 || input.Description.Length > 60 || input.Description == null)
+            if ( input.Seats == "" || input.DepartureTime == "" || input.Description == "" ||
+                 input.EndPoint == "" || input.StartPoint == "" ||
+                int.Parse(input.Seats) < 2 || int.Parse(input.Seats) > 6 ||
+                input.Description.Length < 0 || input.Description.Length > 60)
             {
-                this.Redirect("Add");
+                return this.Redirect("Add");
             }
 
             this.tripsService.AddTrip(input);
@@ -94,7 +95,7 @@
 
             if (this.tripsService.IsUserJoinedThisTrip(this.User, tripId))
             {
-                return this.Error("User already joined this trip!");
+                return this.Details(tripId);
             }
 
             this.tripsService.JoinUserToTrip(this.User, tripId);

@@ -1,4 +1,4 @@
-﻿namespace SharedTrip
+﻿namespace SharedTrip.Data
 {
     using Microsoft.EntityFrameworkCore;
     using Models;
