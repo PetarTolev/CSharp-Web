@@ -23,7 +23,7 @@ namespace SharedTrip.Controllers
 
         public HttpResponse Add()
         {
-            throw new NotImplementedException();
+            return this.View();
         }
 
         [HttpPost]
