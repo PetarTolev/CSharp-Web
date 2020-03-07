@@ -1,7 +1,4 @@
-﻿using System;
-using Microsoft.AspNetCore.Identity;
-
-namespace LearnLanguageSystem.Web
+﻿namespace LearnLanguageSystem.Web
 {
     using System.Reflection;
 
@@ -18,6 +15,7 @@ namespace LearnLanguageSystem.Web
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -50,6 +48,19 @@ namespace LearnLanguageSystem.Web
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings.
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+
+                options.User.RequireUniqueEmail = false;
+            });
 
             services.AddSingleton(this.configuration);
 
