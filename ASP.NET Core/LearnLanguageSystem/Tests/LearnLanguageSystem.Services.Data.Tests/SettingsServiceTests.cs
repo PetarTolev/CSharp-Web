@@ -1,16 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LearnLanguageSystem.Data;
-using LearnLanguageSystem.Data.Common.Repositories;
-using LearnLanguageSystem.Data.Models;
-using LearnLanguageSystem.Data.Repositories;
-using Microsoft.EntityFrameworkCore;
-using Moq;
-using Xunit;
-
-namespace LearnLanguageSystem.Services.Data.Tests
+﻿namespace LearnLanguageSystem.Services.Data.Tests
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using LearnLanguageSystem.Data;
+    using LearnLanguageSystem.Data.Common.Repositories;
+    using LearnLanguageSystem.Data.Models;
+    using LearnLanguageSystem.Data.Repositories;
+    using Microsoft.EntityFrameworkCore;
+    using Moq;
+    using Xunit;
+
     public class SettingsServiceTests
     {
         [Fact]
